@@ -1,4 +1,5 @@
 <template>
+    <div>
     <div class="mt-8 container mx-auto">
         <div class="mx-4">
             <p class="font-bold text-sm">Search</p>
@@ -11,6 +12,7 @@
         <Card :classInfo="testClassInfo"/>
         <Card :classInfo="testClassInfo"/>
     </div>
+    </div>
 </template>
 
 <script setup>
@@ -19,10 +21,9 @@ const testClassInfo = {
     'ja':'情報科学特論',
     'en':'Topics of Information Science',
 }
-    
-setTimeout(function(){
-    document.getElementById("searchInput").value="lol"
-},10)
+const searchTerm = useSearch();
+console.log(searchTerm.value);
+onMounted(()=>document.getElementById("searchInput").value = searchTerm.value.search);
 
 
 </script>

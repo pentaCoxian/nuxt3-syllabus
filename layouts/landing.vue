@@ -5,10 +5,7 @@
             <div class="flex ml-5 text-lg my-4 font-semibold leading-4">The<br>Non-Official<br>ICU Syllabus Search</div>
             
         </div>
-        
-        <div class="grow w-full bg-icu flex-col flex">
-            <slot />
-        </div>
+        <slot />
     </div>
 </template>
 

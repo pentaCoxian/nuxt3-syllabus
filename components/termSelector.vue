@@ -1,4 +1,5 @@
 <template>
+    <div>
     <div class="container mx-auto">
         <div class="mb-1 text-white text-md font-semibold"><p>Search from</p></div>
     </div>
@@ -8,17 +9,17 @@
         <div><button class="text-5xl text-white font-bold season" :class="[selected==1 ? 'selected' : 'not-selected']" v-on:click="consoleHitOn(1)">Spring</button></div>
         <div><button class="text-5xl text-white font-bold season" :class="[selected==2 ? 'selected' : 'not-selected']" v-on:click="consoleHitOn(2)">Autumn</button></div>
         <div><button class="text-5xl text-white font-bold season" :class="[selected==3 ? 'selected' : 'not-selected']" v-on:click="consoleHitOn(3)">Winter</button></div>
-    </div> 
+    </div>
+    </div>
 </template> 
 
 <script setup>
-const selected = ref(0)
+const selected = ref(0);
+const searchTerm = useSearch();
 function consoleHitOn(arg) {
-  selected.value = arg
-}
-
-
-
+  selected.value = arg;
+  searchTerm.value.season = arg;
+};
 </script>
   
 

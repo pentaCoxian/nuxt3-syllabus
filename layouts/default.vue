@@ -18,9 +18,7 @@
             <div class="flex-col">
                 <slot />
             </div>
-        </div>
-
-        
+        </div>        
     </div>
 </template>
 
