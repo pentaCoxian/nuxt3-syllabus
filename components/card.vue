@@ -15,7 +15,7 @@
         <div class="container flex">
             <div class="grow"></div>
             <div class="text-2xl mr-2 font-bold">{{ classInfo.hits }} Hits</div>
-            <NuxtLink class="text-2xl mr-2 font-bold" :to="`/search/${classInfo.regId}`" >Details...</NuxtLink>
+            <NuxtLink class="text-2xl mr-2 font-bold" :to="`/search/${classInfo.regno}`" >Details...</NuxtLink>
        </div>
     </div>
 </template>

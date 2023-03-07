@@ -54,7 +54,7 @@ const { regno } = useRoute().params;
 
 //query api
 const {data:classInfo,pending,refresh}= await useLazyAsyncData(
-    'classInfo',()=>$fetch(`http://syllabus.icu/api/v1/details?id=${regno}`)
+    'classInfo',()=>$fetch(`https://devserver.icu/api/v1/details?id=${regno}`)
 );
 </script>
 

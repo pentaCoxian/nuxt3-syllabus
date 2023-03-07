@@ -47,7 +47,7 @@ const qString = computed(()=> {
 
 //query api
 const {data:classes,pending,refresh}= await useLazyAsyncData(
-    'classes',()=>$fetch(`http://syllabus.icu/api/v1/beta${qString.value}`)
+    'classes',()=>$fetch(`https://devserver.icu/api/v1/beta${qString.value}`)
 )
 
 //change display and value of term selector
