@@ -25,7 +25,6 @@ definePageMeta({
 
 const onClickSearch = (e) => {
     searchTerm.value.search = document.getElementById("search-box").value;
-    console.log(searchTerm.value);
 }
 
 

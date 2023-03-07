@@ -5,17 +5,18 @@
     </div>
     
     <div class="container mx-auto space-y-2">
-        <div><button class="text-5xl text-white font-bold season" :class="[selected==0 ? 'selected' : 'not-selected']" v-on:click="consoleHitOn(0)">All</button></div>
-        <div><button class="text-5xl text-white font-bold season" :class="[selected==1 ? 'selected' : 'not-selected']" v-on:click="consoleHitOn(1)">Spring</button></div>
-        <div><button class="text-5xl text-white font-bold season" :class="[selected==2 ? 'selected' : 'not-selected']" v-on:click="consoleHitOn(2)">Autumn</button></div>
-        <div><button class="text-5xl text-white font-bold season" :class="[selected==3 ? 'selected' : 'not-selected']" v-on:click="consoleHitOn(3)">Winter</button></div>
+        <div><button class="text-5xl text-white font-bold season" :class="[selected=='*' ? 'selected' : 'not-selected']" v-on:click="consoleHitOn('*')">Full</button></div>
+        <div><button class="text-5xl text-white font-bold season" :class="[selected=='Spring Term' ? 'selected' : 'not-selected']" v-on:click="consoleHitOn('Spring Term')">Spring</button></div>
+        <div><button class="text-5xl text-white font-bold season" :class="[selected=='Autumn Term' ? 'selected' : 'not-selected']" v-on:click="consoleHitOn('Autumn Term')">Autumn</button></div>
+        <div><button class="text-5xl text-white font-bold season" :class="[selected=='Winter Term' ? 'selected' : 'not-selected']" v-on:click="consoleHitOn('Winter Term')">Winter</button></div>
     </div>
     </div>
 </template> 
 
 <script setup>
-const selected = ref(0);
+
 const searchTerm = useSearch();
+const selected = ref(searchTerm.value.season);
 function consoleHitOn(arg) {
   selected.value = arg;
   searchTerm.value.season = arg;

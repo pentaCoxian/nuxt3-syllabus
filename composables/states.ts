@@ -3,6 +3,6 @@ export const useSearch= () =>
     console.log("setting up search");
     return {
       search: "",
-      season: "",
+      season: "*",
     };
   });
