@@ -1,5 +1,5 @@
 <template>
-    <div class="h-screen flex flex-col">
+    <div class="flex flex-col">
         <div >
             <header class="shadow-sm bg-icu">
                 <nav class=" flex mx-auto justify-between">
