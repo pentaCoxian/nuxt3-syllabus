@@ -19,7 +19,7 @@
         <div class="mx-4">
             <div class="container flex flex-row items-end mt-1 text-lg ">
                 <div class="grow"></div>
-                <div class="">{{ classes.length }} Results</div>
+                <div v-if="!pending" class="">{{ classes.length }} Results</div>
             </div>
         </div>
     </div>
