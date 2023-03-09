@@ -13,38 +13,38 @@
             <div class="mx-1 content-marker" v-if="!pending">{{ classInfo.schedule }}</div>
         </div>
         <div class="mb-4">
-            <div class="font-bold text-lg" :class="(classInfo.descreption == '') ? 'hidden':''" v-if="!pending">Descreption </div><div class="content-marker" v-if="!pending">{{classInfo.descreption}}</div>
-            <div class="font-bold text-lg" :class="(classInfo.descreption_j == '') ? 'hidden':''" v-if="!pending">Descreption_j</div><div class="content-marker" v-if="!pending">{{classInfo.descreption_j}}</div>
+            <div class="font-bold text-lg" :class="(classInfo.descreption == '') ? 'hidden':''" v-if="!pending">Descreption </div><div class="content-marker whitespace-pre-wrap" v-if="!pending">{{classInfo.descreption}}</div>
+            <div class="font-bold text-lg" :class="(classInfo.descreption_j == '') ? 'hidden':''" v-if="!pending">Descreption_j</div><div class="content-marker whitespace-pre-wrap" v-if="!pending">{{classInfo.descreption_j}}</div>
         </div>
 
         <div class="mb-4">
-            <div class="font-bold text-lg" :class="(classInfo.goals == '') ? 'hidden':''" v-if="!pending">Learning goals </div><div class="content-marker" v-if="!pending">{{classInfo.goals}}</div>
-            <div class="font-bold text-lg" :class="(classInfo.goals_j == '') ? 'hidden':''" v-if="!pending">Learning goals_j </div><div class="content-marker" v-if="!pending">{{classInfo.goals_j}}</div>
+            <div class="font-bold text-lg" :class="(classInfo.goals == '') ? 'hidden':''" v-if="!pending">Learning goals </div><div class="content-marker whitespace-pre-wrap" v-if="!pending">{{classInfo.goals}}</div>
+            <div class="font-bold text-lg" :class="(classInfo.goals_j == '') ? 'hidden':''" v-if="!pending">Learning goals_j </div><div class="content-marker whitespace-pre-wrap" v-if="!pending">{{classInfo.goals_j}}</div>
         </div>
         
         <div class="mb-4">
-            <div class="font-bold text-lg" :class="(classInfo.content == '') ? 'hidden':''" v-if="!pending">Content </div><div class="content-marker" v-if="!pending">{{classInfo.content}}</div>
-            <div class="font-bold text-lg" :class="(classInfo.content_j == '') ? 'hidden':''" v-if="!pending">Content_j </div><div class="content-marker" v-if="!pending">{{classInfo.content_j}}</div>
+            <div class="font-bold text-lg" :class="(classInfo.content == '') ? 'hidden':''" v-if="!pending">Content </div><div class="content-marker whitespace-pre-wrap" v-if="!pending">{{classInfo.content}}</div>
+            <div class="font-bold text-lg" :class="(classInfo.content_j == '') ? 'hidden':''" v-if="!pending">Content_j </div><div class="content-marker whitespace-pre-wrap" v-if="!pending">{{classInfo.content_j}}</div>
         </div>
 
         <div class="mb-4">
-            <div class="font-bold text-lg" :class="(classInfo.lang_of_inst == '') ? 'hidden':''" v-if="!pending">Language of Instruction </div><div class="content-marker" v-if="!pending">{{classInfo.lang_of_inst}}</div>
+            <div class="font-bold text-lg" :class="(classInfo.lang_of_inst == '') ? 'hidden':''" v-if="!pending">Language of Instruction </div><div class="content-marker whitespace-pre-wrap" v-if="!pending">{{classInfo.lang_of_inst}}</div>
         </div>
 
         <div class="mb-4">
-            <div class="font-bold text-lg" :class="(classInfo.pollicy == '') ? 'hidden':''" v-if="!pending">Grading Policy </div><div class="content-marker" v-if="!pending">{{classInfo.pollicy}}</div>
+            <div class="font-bold text-lg" :class="(classInfo.pollicy == '') ? 'hidden':''" v-if="!pending">Grading Policy </div><div class="content-marker whitespace-pre-wrap" v-if="!pending">{{classInfo.pollicy}}</div>
         </div>
 
         <div class="mb-4">
-            <div class="font-bold text-lg" :class="(classInfo.individual_study == '') ? 'hidden':''" v-if="!pending">Individual Study </div><div class="content-marker" v-if="!pending">{{classInfo.individual_study}}</div>
+            <div class="font-bold text-lg" :class="(classInfo.individual_study == '') ? 'hidden':''" v-if="!pending">Individual Study </div><div class="content-marker whitespace-pre-wrap" v-if="!pending">{{classInfo.individual_study}}</div>
         </div>
 
         <div class="mb-4">
-            <div class="font-bold text-lg" :class="(classInfo.notes == '') ? 'hidden':''" v-if="!pending">Grading Policy </div><div class="content-marker" v-if="!pending">{{classInfo.notes}}</div>
+            <div class="font-bold text-lg" :class="(classInfo.notes == '') ? 'hidden':''" v-if="!pending">Grading Policy </div><div class="content-marker whitespace-pre-wrap" v-if="!pending">{{classInfo.notes}}</div>
         </div>
 
         <div class="mb-4">
-            <div class="font-bold text-lg" :class="(classInfo.ref == '') ? 'hidden':''" v-if="!pending">References </div><div class="content-marker" v-if="!pending">{{classInfo.ref}}</div>
+            <div class="font-bold text-lg" :class="(classInfo.ref == '') ? 'hidden':''" v-if="!pending">References </div><div class="content-marker whitespace-pre-wrap" v-if="!pending">{{classInfo.ref}}</div>
         </div>
     </div>
 </template>
@@ -68,7 +68,6 @@ onMounted(()=>{
         for(let i of htmlList){
             qList.forEach((e)=>{
                 i.innerHTML = i.innerHTML.replace(e,makeTag(e,"<found class='underline decoration-pink-500 decoration-4'>","</found>"));
-                console.log(i.innerHTML);
             })
             
         }

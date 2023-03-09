@@ -47,7 +47,7 @@ const qString = computed(()=> {
 
 //query api
 const {data:classes,pending,refresh}= await useLazyAsyncData(
-    'classes',()=>$fetch(`https://devserver.icu/api/v1/beta${qString.value}`)
+    'classes',()=>$fetch(`https://devserver.icu/api/v2/search-snippet${qString.value}`)
 )
 
 //change display and value of term selector
@@ -62,6 +62,7 @@ function searchUpdate(){
     searchTerm.value.search = (q = undefined ? '' : q );
 }
 
+
 //unused
 const onClickSearch = (e) => {
     searchTerm.value.search = document.getElementById("searchInput").value;
@@ -71,6 +72,7 @@ const onClickSearch = (e) => {
 //watch for updates in variables and query the api on change
 watch(()=>searchTerm.value.search,()=>refresh());
 watch(()=>searchTerm.value.season,()=>refresh());
+watch(()=>refresh())
 </script>
 
 <style scoped>
