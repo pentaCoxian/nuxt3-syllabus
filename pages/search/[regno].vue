@@ -40,7 +40,7 @@
         </div>
 
         <div class="mb-4">
-            <div class="font-bold text-lg" :class="(classInfo.notes == '') ? 'hidden':''" v-if="!pending">Grading Policy </div><div class="content-marker whitespace-pre-wrap" v-if="!pending">{{classInfo.notes}}</div>
+            <div class="font-bold text-lg" :class="(classInfo.notes == '') ? 'hidden':''" v-if="!pending">Notes </div><div class="content-marker whitespace-pre-wrap" v-if="!pending">{{classInfo.notes}}</div>
         </div>
 
         <div class="mb-4">

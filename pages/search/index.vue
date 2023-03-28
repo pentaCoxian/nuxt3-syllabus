@@ -30,13 +30,23 @@
 </template>
 
 <script setup>
+definePageMeta({
+    layout: "default",
+    pageTransition:{
+        name: 'rotate'
+    },
+    scrollToTop: false,
+})
+
+
+
 const searchTerm = useSearch();
 const selected = ref(searchTerm.value.season);
 
 //load search term on load
 onMounted(()=>{
     setTimeout(()=>{
-        document.getElementById("searchInput").value = searchTerm.value.search},30)});
+        document.getElementById("searchInput").value = searchTerm.value.search},110)});
 
 //make query string
 const qString = computed(()=> {
@@ -47,7 +57,7 @@ const qString = computed(()=> {
 
 //query api
 const {data:classes,pending,refresh}= await useLazyAsyncData(
-    'classes',()=>$fetch(`https://devserver.icu/api/v2/search-snippet${qString.value}`)
+    'classes',()=>$fetch(`https://devserver.icu/api/v3/search${qString.value}`)
 )
 
 //change display and value of term selector
@@ -70,9 +80,9 @@ const onClickSearch = (e) => {
 }
 
 //watch for updates in variables and query the api on change
-watch(()=>searchTerm.value.search,()=>refresh());
-watch(()=>searchTerm.value.season,()=>refresh());
-watch(()=>refresh())
+watchEffect(()=>searchTerm.value.search,()=>refresh());
+watchEffect(()=>searchTerm.value.season,()=>refresh());
+watchEffect(()=>refresh())
 </script>
 
 <style scoped>

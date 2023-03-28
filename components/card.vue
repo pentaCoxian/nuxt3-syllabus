@@ -10,7 +10,7 @@
         </div>
         <div class="container bg-gray-200 grow flex">
             <div class="bg-black w-1 border-4 border-gray-200"></div>
-            <div class="container"><p class="whitespace-pre-wrap mb-2 " v-for="item in classInfo.hits" :key="item[0]">{{item}}</p></div>
+            <div class="container"><p class="whitespace-pre-wrap mb-2 " >{{classInfo.Summary.summary_j}}</p></div>
         </div>
         <div class="container flex">
             <div class="grow"></div>
