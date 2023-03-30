@@ -35,6 +35,7 @@
 definePageMeta({
     layout: "default",
     scrollToTop: false,
+    keepalive: true,
 })
 
 

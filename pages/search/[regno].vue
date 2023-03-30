@@ -50,6 +50,11 @@
 </template>
 
 <script setup>
+definePageMeta({
+    keepalive: true,
+})
+
+
 const { regno } = useRoute().params;
 const searchTerm = useSearch();
 let q = searchTerm.value.search;
