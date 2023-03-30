@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto sm:px-0 px-3 sm:mt-10 mt-2 ">
+    <div ref="rootE1" class="container mx-auto sm:px-0 px-3 sm:mt-10 mt-2 ">
         <div class="sm:text-4xl text-xl font-bold content-marker" v-if="!pending">{{ classInfo.cno }}  </div><div class="sm:text-4xl text-xl font-bold border-b-2 pb-1 mb-3 border-black content-marker" v-if="!pending">  {{ classInfo.title_j }} / {{classInfo.title_e}}</div>
         <div class="flex flex-row-reverse space-x-2.5">
             <div class="mx-1 content-marker" v-if="!pending">{{ classInfo.lang }}({{ classInfo.unit_e.split('CREDIT （単位）: ').pop() }})</div>
@@ -54,24 +54,22 @@ const { regno } = useRoute().params;
 const searchTerm = useSearch();
 let q = searchTerm.value.search;
 const qList = q.split(' ');
-
+const rootE1 = ref();
 function makeTag(q,tagStart,tagEnd){
     q = tagStart + q + tagEnd;
     return q
 }
 
-onMounted(()=>{
-    setTimeout(()=>{
-    console.log(q)
+useSafeOnMounted(rootE1,()=>{
     let htmlList = document.getElementsByClassName("content-marker")
     qList.forEach((e)=>{
         for(let i of htmlList){
             qList.forEach((e)=>{
-                i.innerHTML = i.innerHTML.replace(e,makeTag(e,"<found class='underline decoration-pink-500 decoration-4'>","</found>"));
+                i.innerHTML = i.innerHTML.replace(e,makeTag(e,"<found class='underline decoration-red-500 decoration-4'>","</found>"));
             })
             
         }
-    });},100);
+    })
 });
 
 
