@@ -15,13 +15,16 @@
 </template>
 
 <script setup>
+
 const searchTerm = useSearch();
 definePageMeta({
     layout: "landing",
     pageTransition:{
-        name: 'rotate'
+        name:'rotate'
     }
 })
+
+
 
 const navigate = () => {
     searchTerm.value.search = document.getElementById("search-box").value;

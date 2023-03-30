@@ -8,9 +8,10 @@
             </div>
             <div class="leading-none text-base font-bold">{{ classInfo.title_e }}</div>
         </div>
-        <div class="container bg-gray-200 grow flex">
-            <div class="bg-black w-1 border-4 border-gray-200"></div>
-            <div class="container"><p class="whitespace-pre-wrap mb-2 " >{{classInfo.Summary.summary_j}}</p></div>
+        <div class="container bg-gray-100 grow flex flex-col border-8 border-gray-200">
+            <p class="mb-2 ml-2 mr-1.5" >{{classInfo.summary_j}}</p>
+            <div class="grow"></div>
+            <div class="font-medium ml-2">Summary made by GPT-3.5</div>
         </div>
         <div class="container flex">
             <div class="grow"></div>

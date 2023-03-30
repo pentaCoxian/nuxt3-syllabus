@@ -3,7 +3,7 @@
     <div class="mt-8 container mx-auto">
         <div class="mx-4">
             <p class="font-bold text-sm">Search</p>
-            <div class="ml-0 font-bold flex"><input id="searchInput" class="w-full text-xl sm:text-4xl text-black border-black bg-white sm:border-b-8 border-b-8 focus:outline-0" @input="searchUpdate"></div>
+            <div class="ml-0 font-bold flex"><input ref="rootE1" id="searchInput" class="w-full text-xl sm:text-4xl text-black border-black bg-white sm:border-b-8 border-b-8 focus:outline-0" @input="searchUpdate"></div>
             <div class="container flex flex-row items-end mt-1.5 text-lg">
                 <div class="grow"></div>
                 <div class="border border-black border-2">
@@ -23,8 +23,10 @@
             </div>
         </div>
     </div>
-    <div class="flex flex-row flex-wrap justify-center my-4 gap-4" v-if="!pending">
-        <Card  v-for="classdata in classes" :classInfo="classdata" :key="classdata.regno"/>
+    <div class="container mx-auto">
+        <div class="flex flex-row flex-wrap justify-center my-4 gap-4" v-if="!pending">
+            <Card  v-for="classdata in classes" :classInfo="classdata" :key="classdata.regno"/>
+        </div>
     </div>
     </div>
 </template>
@@ -32,9 +34,6 @@
 <script setup>
 definePageMeta({
     layout: "default",
-    pageTransition:{
-        name: 'rotate'
-    },
     scrollToTop: false,
 })
 
@@ -42,11 +41,10 @@ definePageMeta({
 
 const searchTerm = useSearch();
 const selected = ref(searchTerm.value.season);
-
-//load search term on load
-onMounted(()=>{
-    setTimeout(()=>{
-        document.getElementById("searchInput").value = searchTerm.value.search},110)});
+const rootE1 = ref();
+useSafeOnMounted(rootE1,()=>{
+    document.getElementById("searchInput").value = searchTerm.value.search
+})
 
 //make query string
 const qString = computed(()=> {
@@ -86,6 +84,18 @@ watchEffect(()=>refresh())
 </script>
 
 <style scoped>
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.2s;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  transform: translate(-1000px, 0);
+}
+
 input:focus,
 select:focus,
 textarea:focus,
