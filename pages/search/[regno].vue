@@ -1,4 +1,5 @@
 <template>
+    <div>
     <div ref="rootE1" class="container mx-auto sm:px-0 px-3 sm:mt-10 mt-2 ">
         <div class="sm:text-4xl text-xl font-bold content-marker" v-if="!pending">{{ classInfo.cno }}  </div><div class="sm:text-4xl text-xl font-bold border-b-2 pb-1 mb-3 border-black content-marker" v-if="!pending">  {{ classInfo.title_j }} / {{classInfo.title_e}}</div>
         <div class="flex flex-row-reverse space-x-2.5">
@@ -47,6 +48,15 @@
             <div class="font-bold text-lg" :class="(classInfo.ref == '') ? 'hidden':''" v-if="!pending">References </div><div class="content-marker whitespace-pre-wrap" v-if="!pending">{{classInfo.ref}}</div>
         </div>
     </div>
+    <div class="container mx-auto border-black border-b-2"></div>
+    <div class="container sm:mx-auto ml-2 mt-8 bg-gray-200 mb-20 border-black border-l-2">
+        <div class="ml-2 pt-4 pb-4">
+        <div class="text-2xl font-bold">追加情報</div>
+        <div>履修定員: {{ classInfo.maxnum =='' ? '指定なし、事前登録必要なし。' : classInfo.maxnum}} </div> 
+        <div>授業形態: {{ classInfo.online_flg }}</div>
+        </div>
+    </div>
+    </div>
 </template>
 
 <script setup>
@@ -80,8 +90,11 @@ useSafeOnMounted(rootE1,()=>{
 
 //query api
 const {data:classInfo,pending,refresh}= await useLazyAsyncData(
-    'classInfo',()=>$fetch(`https://devserver.icu/api/v1/details?id=${regno}`)
+    'classInfo',()=>$fetch(`https://devserver.icu/api/v3/details?id=${regno}`)
 );
+
+if (classInfo.maxnum == '' ){classInfo.maxnum == "事前登録必要なし"}
+
 </script>
 
 <style scoped>
