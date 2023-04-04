@@ -1,5 +1,6 @@
 <template>
     <header class="shadow-sm bg-icu sticky top-0 z-50">
+        
         <div class="relative">
             <nav class=" flex mx-auto justify-between ">
                 <div class="flex">

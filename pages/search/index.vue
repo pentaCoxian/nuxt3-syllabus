@@ -26,6 +26,9 @@
     <div class="container mx-auto">
         <div class="flex flex-row flex-wrap justify-center my-4 gap-4" v-if="!pending">
             <Card  v-for="classdata in classes" :classInfo="classdata" :key="classdata.regno"/>
+            <div class="bg-gray-300 w-[340px] flex flex-col">
+                <adsbygoogle />
+            </div>
         </div>
     </div>
     </div>

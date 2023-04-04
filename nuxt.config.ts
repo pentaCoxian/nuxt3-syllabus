@@ -18,6 +18,7 @@ export default defineNuxtConfig({
               },
               { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
               { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+              
             ],
             title: "Syllabus.icu - ICUシラバス検索",
             meta:[
@@ -30,6 +31,13 @@ export default defineNuxtConfig({
         pageTransition:{name:"page",mode: 'out-in'}
     },
     
-    modules: ['@nuxtjs/tailwindcss'],
+    modules: ['@nuxtjs/tailwindcss','@nuxtjs/google-adsense'],
+    
+    'google-adsense':{
+      id: 'pub-9280740248496337',
+      test: false,
+      overlayBottom: true,
 
+    },
+    
 })
