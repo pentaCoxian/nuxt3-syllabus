@@ -31,13 +31,14 @@ export default defineNuxtConfig({
         pageTransition:{name:"page",mode: 'out-in'}
     },
     
-    modules: ['@nuxtjs/tailwindcss','@nuxtjs/google-adsense'],
-    
+    modules: ['@nuxtjs/tailwindcss','@nuxtjs/google-adsense','nuxt-gtag'],
     'google-adsense':{
       id: 'pub-9280740248496337',
       test: false,
       overlayBottom: true,
-
     },
+    gtag:{
+      id:'G-XQVLKJ95SP'
+    }
     
 })

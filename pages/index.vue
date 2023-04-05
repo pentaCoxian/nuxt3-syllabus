@@ -1,4 +1,5 @@
 <template>
+
     <div class="grow w-full bg-icu flex-col flex">
         <div class="container mx-auto mt-10">
             <div class="text-7xl text-white font-bold mx-1">I WANT TO LEARN ABOUT...</div>
@@ -12,6 +13,7 @@
             <TermSelector/>
         </div>
     </div>
+
 </template>
 
 <script setup>
