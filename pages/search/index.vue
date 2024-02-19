@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <KeepAlive>
+        <div>
     <div class="mt-8 container mx-auto">
         <div class="mx-4">
             <p class="font-bold text-sm">Search</p>
@@ -26,12 +27,10 @@
     <div class="container mx-auto">
         <div class="flex flex-row flex-wrap justify-center my-4 gap-4" v-if="!pending">
             <Card  v-for="classdata in classes" :classInfo="classdata" :key="classdata.regno"/>
-            <div class="bg-gray-300 w-[340px] flex flex-col">
-                <adsbygoogle />
-            </div>
         </div>
     </div>
     </div>
+    </KeepAlive>
 </template>
 
 <script setup>
@@ -52,14 +51,14 @@ useSafeOnMounted(rootE1,()=>{
 
 //make query string
 const qString = computed(()=> {
-    let qstring = '?q='+searchTerm.value.search
+    let qstring = '?query='+searchTerm.value.search
     qstring += searchTerm.value.season != ''? '&term='+searchTerm.value.season : '&term=Full'
     return qstring
 })
 
 //query api
 const {data:classes,pending,refresh}= await useLazyAsyncData(
-    'classes',()=>$fetch(`https://devserver.icu/api/v3/search${qString.value}`)
+    'classes',()=>$fetch(`https://api.pentacoxian.dev/api/v2/legacy${qString.value}`)
 )
 
 //change display and value of term selector
