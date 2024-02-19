@@ -4,7 +4,7 @@
         <div class="sm:text-4xl text-xl font-bold content-marker" v-if="!pending">{{ classInfo.cno }}  </div><div class="sm:text-4xl text-xl font-bold border-b-2 pb-1 mb-3 border-black content-marker" v-if="!pending">  {{ classInfo.title_j }} / {{classInfo.title_e}}</div>
         <div class="flex flex-row-reverse space-x-2.5">
             <div class="mx-1 content-marker" v-if="!pending">{{ classInfo.lang }}({{ classInfo.unit_e.split('CREDIT （単位）: ').pop() }})</div>
-            <div class="mx-1 content-marker" v-if="!pending">regno: {{ classInfo.regno }}</div>
+            <div class="mx-1 content-marker" v-if="!pending">regno: {{ classInfo.rgno }}</div>
         </div>
         
         <div class="flex flex-row-reverse">
@@ -53,7 +53,6 @@
         <div class="ml-2 pt-4 pb-4">
         <div class="text-2xl font-bold">追加情報</div>
         <div>履修定員: {{ classInfo.maxnum =='' ? '指定なし、事前登録必要なし。' : classInfo.maxnum}} </div> 
-        <div>授業形態: {{ classInfo.online_flg }}</div>
         </div>
     </div>
     </div>
@@ -90,7 +89,7 @@ useSafeOnMounted(rootE1,()=>{
 
 //query api
 const {data:classInfo,pending,refresh}= await useLazyAsyncData(
-    'classInfo',()=>$fetch(`https://devserver.icu/api/v3/details?id=${regno}`)
+    'classInfo',()=>$fetch(`https://api.pentacoxian.dev/api/v2/details?id=${regno}`)
 );
 
 if (classInfo.maxnum == '' ){classInfo.maxnum == "事前登録必要なし"}

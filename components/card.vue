@@ -1,12 +1,12 @@
 <template>
     <div class="bg-gray-300 w-[340px] flex flex-col">
         <div class=" mx-4 mt-2 mb-2 search-content">
-            <div class="flex flex-row justify-between"><div class="leading-none text-custom font-bold mb-1">{{ classInfo.cno }}</div><div class="text-rg self-end font-regular mb-1">2023 {{ term }} ({{ lang }})</div></div>
+            <div class="flex flex-row justify-between"><div class="leading-none text-custom font-bold mb-1">{{ classInfo.cno }}</div><div class="text-rg self-end font-regular mb-1">2024 {{ term }} ({{ lang }})</div></div>
             
             <div class="leading-none text-2xl font-bold">
-                <NuxtLink :to="`/search/${classInfo.regno}`">{{classInfo.title_j}}</NuxtLink>
+                <NuxtLink :to="`/search/${classInfo.rgno}`">{{classInfo.title_j}}</NuxtLink>
             </div>
-            <div class="leading-none mt-1 text-base font-medium"><NuxtLink :to="`/search/${classInfo.regno}`">{{ classInfo.title_e }}</NuxtLink></div>
+            <div class="leading-none mt-1 text-base font-medium"><NuxtLink :to="`/search/${classInfo.rgno}`">{{ classInfo.title_e }}</NuxtLink></div>
         </div>
         <div class="container bg-gray-100 grow flex flex-col border-x-8 border-gray-200">
             <p class="mb-2 mt-1 ml-2 mr-1.5" :class="(summary_lang == 'J') ? '':'hidden'">{{classInfo.summary_j}}</p>
